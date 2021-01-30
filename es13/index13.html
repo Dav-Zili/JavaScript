@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const stipendi = [500, 1000, 2370, 1140, 1500, 1750, 5000, 1220, 1600]  //dichiarazione vettore
+
+        const media = stipendi.reduce((acc,e) =>{
+            return acc + e
+        },0)/stipendi.length                //trovo la media
+
+        const stipendi_map = stipendi.map((e) => {
+            e += (1/10)*e
+            return e
+        })
+        let stipendi_foreach = []
+        stipendi.forEach((e)=>{
+            if(e>= 1000){
+                stipendi_foreach.push(e)
+            } 
+        })
+
+        const stipendi_filter = stipendi.filter((e) => {
+            if(e > media){
+                return e;
+            }
+        })
+
+        const stipendi_reduce = stipendi.reduce((acc, e) => {
+            var divisibile = e%100 === 0 ? e : 0
+            return acc + divisibile
+        })
+
+        console.log(media)                              //printo i risultati
+        console.log(stipendi_map)
+        console.log(stipendi_foreach)
+        console.log(stipendi_filter) 
+        console.log(stipendi_reduce)
+    </script>
+</body>
+</html>
